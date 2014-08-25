@@ -3,5 +3,10 @@
 
 interface Observer
 {
-    public function onInterest($object);
+    /**
+     * @param $object
+     * @param string $methodName
+     * @return void
+     */
+    public function onInterest($object, $methodName);
 }

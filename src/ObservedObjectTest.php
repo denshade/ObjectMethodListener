@@ -22,7 +22,7 @@ class ObservedObjectTest extends PHPUnit_Framework_TestCase implements Observer
         $this->assertTrue($this->hasRun);
     }
 
-    public function onInterest($object)
+    public function onInterest($object, $method)
     {
         $this->hasRun = true;
     }

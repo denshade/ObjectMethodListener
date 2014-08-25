@@ -37,7 +37,7 @@ class ObservedObject
         $reflectionMethod->invokeArgs($this->object, $arguments);
         foreach($this->observers as $observer)
         {
-            $observer->onInterest($this->object);
+            $observer->onInterest($this->object, $name);
         }
     }
 

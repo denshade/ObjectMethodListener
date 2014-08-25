@@ -19,8 +19,9 @@ class StackTraceObserver implements Observer
 
     /**
      * @param $object
+     * @param string $methodName
      */
-    public function onInterest($object)
+    public function onInterest($object, $methodName)
     {
         $log = var_export(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS), true);
         file_put_contents($this->outfile, $log, FILE_APPEND);
