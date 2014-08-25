@@ -9,7 +9,7 @@ Features contain:
 
 **How it works**
 
-Simply wrap you object like so:
+Simply wrap your object like so:
 
 This will trace the observed object. If you interested in recording all of the accessors of a method(s).
 
