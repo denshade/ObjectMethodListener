@@ -64,7 +64,7 @@ class ObservedObject
     /**
      * @return array
      */
-    public function get0bservers()
+    public function getObservers()
     {
         return $this->observers;
     }
