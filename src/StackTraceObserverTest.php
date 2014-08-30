@@ -9,8 +9,7 @@ class StackTraceObserverTest extends PHPUnit_Framework_TestCase
     public function verifyStackTraceWritten()
     {
         $e = new \Exception();
-        $wrapper = new ObservedObject($e);
-        $wrapper->addObserver(new StackTraceObserver('a.log'));
+        $wrapper = ObjectMutation::wrapAsTraceObserver($e, 'a.log');
         /**
          * @var $wrapper Exception
          */

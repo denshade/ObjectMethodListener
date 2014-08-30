@@ -26,4 +26,28 @@ class ObservedObjectTest extends PHPUnit_Framework_TestCase implements Observer
     {
         $this->hasRun = true;
     }
+
+    /**
+     * @test
+     * @expectedException InvalidArgumentException
+     */
+    public function validatePrimitiveWrappingThrows()
+    {
+        new ObservedObject(2);
+    }
+
+    /**
+     * @test
+     */
+    public function validateAddRemove()
+    {
+        $wrapper = new ObservedObject(new DateTime());
+        $observer = new ReadOnlyObserver();
+        $wrapper->addObserver($observer);
+        $this->assertCount(1, $wrapper->getObservers());
+        $wrapper->addObserver($observer);
+        $this->assertCount(2, $wrapper->getObservers());
+        $wrapper->removeObserver($observer);
+        $this->assertCount(0, $wrapper->getObservers());
+    }
 }

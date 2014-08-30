@@ -10,7 +10,7 @@ class ReadOnlyObserver implements Observer
      */
     public function onInterest($object, $methodName)
     {
-        if (mb_substr($methodName,0,3) === "set")
+        if (substr($methodName,0,3) === "set")
         {
             throw new NotSupportedException("The method call $methodName cannot be called in a readOnly context.");
         }

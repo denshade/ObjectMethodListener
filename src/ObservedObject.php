@@ -56,10 +56,14 @@ class ObservedObject
      */
     public function removeObserver(Observer $observer)
     {
-        $this->observers []= $observer;
+        foreach($this->observers as $key => $activeObserver)
+        {
+            if ($observer === $activeObserver)
+            {
+                unset($this->observers[$key]);
+            }
+        }
     }
-
-
 
     /**
      * @return array
